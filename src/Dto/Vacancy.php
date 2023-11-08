@@ -65,7 +65,7 @@ final class Vacancy
             $data['description'] ?? null,
             Address::fromJson($data['address']),
             $data['category'] ?? null,
-            $data['employmentType'] ?? null ,
+            $data['employmentType'] ?? null,
             $data['educationLevel'] ?? null,
             $data['contractDuration'] ?? null,
             $data['compensationType'] ?? null,
