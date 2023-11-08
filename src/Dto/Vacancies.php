@@ -11,8 +11,6 @@ class Vacancies
     {
         $data = $response->json();
 
-        ray($data);
-
         return collect([
             'total' => $data['hydra:totalItems'],
             'pages' => [
