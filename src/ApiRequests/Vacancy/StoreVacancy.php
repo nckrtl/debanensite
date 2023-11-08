@@ -2,7 +2,7 @@
 
 namespace Nckrtl\DeBanensite\ApiRequests\Vacancy;
 
-use Nckrtl\DeBanensite\Dto\Vacancy;
+use Nckrtl\DeBanensite\DTO\Vacancy;
 use Nckrtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;

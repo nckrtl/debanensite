@@ -4,7 +4,7 @@ namespace Nckrtl\DeBanensite\DTO;
 
 use Saloon\Http\Response;
 
-class Vacancy
+final class Vacancy
 {
     public function __construct(
         public ?string $id,
@@ -49,8 +49,8 @@ class Vacancy
         $data = $response->json();
 
         return match ($dtoType) {
-            'updateOrCreate' => static::updateFormat($data),
-            default => static::defaultFormat($data),
+            'updateOrCreate' => self::updateFormat($data),
+            default => self::defaultFormat($data),
         };
     }
 
@@ -58,7 +58,7 @@ class Vacancy
     {
         $id = str_replace('/vacancies/', '', $data['@id']);
 
-        return new static(
+        return new self(
             $id,
             $data['title'],
             $data['slug'],

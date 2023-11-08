@@ -2,7 +2,7 @@
 
 namespace Nckrtl\DeBanensite\ApiRequests\Vacancy;
 
-use Nckrtl\DeBanensite\Dto\Vacancy;
+use Nckrtl\DeBanensite\DTO\Vacancy;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

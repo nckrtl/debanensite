@@ -4,7 +4,7 @@ namespace Nckrtl\DeBanensite\DTO;
 
 use Saloon\Http\Response;
 
-class Address
+final class Address
 {
     public function __construct(
         public string $id,
@@ -32,7 +32,7 @@ class Address
     {
         $id = str_replace('/addresses/', '', $data['@id']);
 
-        return new static(
+        return new self(
             $id,
             $data['zipcode'],
             $data['houseNumber'],

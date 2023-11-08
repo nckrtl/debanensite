@@ -2,7 +2,7 @@
 
 namespace Nckrtl\DeBanensite\ApiRequests;
 
-use Nckrtl\DeBanensite\Dto\EducationLevels;
+use Nckrtl\DeBanensite\DTO\EducationLevels;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
