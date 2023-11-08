@@ -21,7 +21,6 @@ class DeBanensite
         $lastPage = $vacancies['pages']['last'];
 
         if ($lastPage > $currentPage) {
-            // ray('found '.$lastPage.' pages of vacancies');
 
             for ($i = ($currentPage + 1); $i <= $lastPage; $i++) {
 

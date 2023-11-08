@@ -34,8 +34,6 @@ class UpdateVacancy extends Request implements HasBody
 
     protected function defaultBody(): array
     {
-        ray(array_filter((array) $this->vacancy));
-
         return array_filter((array) $this->vacancy);
     }
 }

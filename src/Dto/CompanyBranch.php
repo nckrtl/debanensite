@@ -10,8 +10,6 @@ class CompanyBranch
     {
         $data = $response->json();
 
-        ray($data);
-
         return collect($data['hydra:member'])->map(function ($educationLevel) {
             return [
                 'id' => str_replace('/education_levels/', '', $educationLevel['@id']),
