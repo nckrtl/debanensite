@@ -5,7 +5,6 @@ namespace Nckrtl\DeBanensite;
 use Illuminate\Support\Collection;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
 
-
 class DeBanensite
 {
     public function allOnlineVacancyIds(): Collection
