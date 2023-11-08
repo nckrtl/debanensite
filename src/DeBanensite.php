@@ -9,7 +9,7 @@ class DeBanensite
 {
     public function allOnlineVacancyIds(): Collection
     {
-        $api = new DeBanensiteConnector(config('auth.debanensite_app_api_key'));
+        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
         $currentPage = 1;
 
         $vacancies = $api->send(new GetVacancies())->dto();
