@@ -5,9 +5,12 @@ namespace Nckrtl\DeBanensite;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Saloon\Http\Connector;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class DeBanensiteConnector extends Connector
 {
+    use AlwaysThrowOnErrors;
+
     public function __construct(protected string $apiKey)
     {
         $bearerToken = Cache::get('debanensite-bearer-token');
