@@ -4,6 +4,8 @@ namespace Nckrtl\DeBanensite;
 
 use Illuminate\Support\Collection;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
+use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
+use Nckrtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
 
 class DeBanensite
 {
@@ -33,5 +35,25 @@ class DeBanensite
         }
 
         return $allOnlineVacancies;
+    }
+
+    public function closeVacancy($vacancyId)
+    {
+        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
+
+        $vacancy = $api->send(new GetVacancy($vacancyId))->dto('updateOrCreate');
+
+        $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
+
+        $api->send(new UpdateVacancy($vacancyId, $vacancy));
+    }
+
+    public function getVacancy(string $vacancyId, string $dtoType = null)
+    {
+        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
+
+        $vacancy = $api->send(new GetVacancy($vacancyId, $dtoType))->dto();
+
+        return $vacancy;
     }
 }
