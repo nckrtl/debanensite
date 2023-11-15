@@ -26,7 +26,7 @@ class GetVacancies extends Request
     protected function defaultQuery(): array
     {
         return [
-            'online' => true,
+            'published' => true,
             'page' => $this->page,
         ];
     }

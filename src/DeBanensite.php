@@ -10,7 +10,7 @@ use Nckrtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
 
 class DeBanensite
 {
-    public function allOnlineVacancyIds(): Collection
+    public function allPublishedVacancyIds(): Collection
     {
         $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
         $currentPage = 1;
@@ -21,7 +21,7 @@ class DeBanensite
             return $vacancy->id;
         });
 
-        $lastPage = $vacancies['pages']['last'];
+        $lastPage = (int) ceil($vacancies['total'] / count($vacancies['items']));
 
         if ($lastPage > $currentPage) {
 
