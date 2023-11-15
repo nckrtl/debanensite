@@ -42,7 +42,7 @@ class DeBanensite
     {
         $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
 
-        $vacancy = $api->send(new GetVacancy($vacancyId))->dto('updateOrCreate');
+        $vacancy = $api->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
 
         $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
 
