@@ -3,10 +3,10 @@
 namespace Nckrtl\DeBanensite;
 
 use Illuminate\Support\Collection;
-use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
-use Nckrtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
+use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
+use Nckrtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
