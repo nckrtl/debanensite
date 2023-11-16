@@ -5,17 +5,22 @@ namespace Nckrtl\DeBanensite;
 use Illuminate\Support\Collection;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
+use Nckrtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
 use Nckrtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
 use Nckrtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
+    public function __construct(protected DeBanensiteConnector $connector)
+    {
+
+    }
+
     public function allPublishedVacancyIds(): Collection
     {
-        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
         $currentPage = 1;
 
-        $vacancies = $api->send(new GetVacancies())->dto();
+        $vacancies = $this->connector->send(new GetVacancies())->dto();
 
         $allOnlineVacancies = $vacancies['items']->map(function ($vacancy) {
             return $vacancy->id;
@@ -27,7 +32,7 @@ class DeBanensite
 
             for ($i = ($currentPage + 1); $i <= $lastPage; $i++) {
 
-                $vacancies = $api->send(new GetVacancies($i))->dto();
+                $vacancies = $this->connector->send(new GetVacancies($i))->dto();
                 $vacancies = $vacancies['items']->map(function ($vacancy) {
                     return $vacancy->id;
                 });
@@ -40,30 +45,25 @@ class DeBanensite
 
     public function closeVacancy($vacancyId)
     {
-        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
-
-        $vacancy = $api->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
+        $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
 
         $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
 
-        $api->send(new UpdateVacancy($vacancyId, $vacancy));
+        $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
     }
 
     public function getVacancy(string $vacancyId, string $dtoType = null)
     {
-        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
-
-        $vacancy = $api->send(new GetVacancy($vacancyId, $dtoType))->dto();
-
-        return $vacancy;
+        return $this->connector->send(new GetVacancy($vacancyId, $dtoType))->dto();
     }
 
     public function updateVacancy(string $vacancyId, VacancyForForStoreOrUpdate $vacancyDto)
     {
-        $api = new DeBanensiteConnector(config('auth.debanensite_api_key'));
+        return $this->connector->send(new UpdateVacancy($vacancyId, $vacancyDto))->dto();
+    }
 
-        $vacancy = $api->send(new UpdateVacancy($vacancyId, $vacancyDto))->dto();
-
-        return $vacancy;
+    public function storeVacancy(VacancyForForStoreOrUpdate $vacancyDto)
+    {
+        return $this->connector->send(new StoreVacancy($vacancyDto))->json();
     }
 }

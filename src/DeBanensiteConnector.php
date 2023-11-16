@@ -11,13 +11,13 @@ class DeBanensiteConnector extends Connector
 {
     use AlwaysThrowOnErrors;
 
-    public function __construct(protected string $apiKey)
+    public function __construct()
     {
         $bearerToken = Cache::get('debanensite-bearer-token');
 
         if (! $bearerToken) {
             $response = Http::asForm()->post('https://accounts.debanensite.nl/token', [
-                'client_id' => $this->apiKey,
+                'client_id' => config('auth.debanensite_api_key'),
                 'client_secret' => config('debanensite.client_secret'),
                 'grant_type' => 'client_credentials',
                 'scope' => 'REST_API',
