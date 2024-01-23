@@ -52,7 +52,7 @@ class DeBanensite
         $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
     }
 
-    public function getVacancy(string $vacancyId, string $dtoType = null)
+    public function getVacancy(string $vacancyId, ?string $dtoType = null)
     {
         return $this->connector->send(new GetVacancy($vacancyId, $dtoType))->dto();
     }
