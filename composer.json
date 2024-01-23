@@ -37,13 +37,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Nckrtl\\DeBanensite\\": "src/",
-            "Nckrtl\\DeBanensite\\Database\\Factories\\": "database/factories/"
+            "NckRtl\\DeBanensite\\": "src/",
+            "NckRtl\\DeBanensite\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Nckrtl\\DeBanensite\\Tests\\": "tests/",
+            "NckRtl\\DeBanensite\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -74,10 +74,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nckrtl\\DeBanensite\\DeBanensiteServiceProvider"
+                "NckRtl\\DeBanensite\\DeBanensiteServiceProvider"
             ],
             "aliases": {
-                "DeBanensite": "Nckrtl\\DeBanensite\\Facades\\DeBanensite"
+                "DeBanensite": "NckRtl\\DeBanensite\\Facades\\DeBanensite"
             }
         }
     },

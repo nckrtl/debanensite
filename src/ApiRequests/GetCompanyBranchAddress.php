@@ -1,8 +1,8 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests;
+namespace NckRtl\DeBanensite\ApiRequests;
 
-use Nckrtl\DeBanensite\DTO\Address;
+use NckRtl\DeBanensite\DTO\Address;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

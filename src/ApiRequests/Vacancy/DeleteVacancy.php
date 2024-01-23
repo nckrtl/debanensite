@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests\Vacancy;
+namespace NckRtl\DeBanensite\ApiRequests\Vacancy;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;

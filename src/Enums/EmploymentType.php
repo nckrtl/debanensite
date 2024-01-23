@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\Enums;
+namespace NckRtl\DeBanensite\Enums;
 
 enum EmploymentType: string
 {

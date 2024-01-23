@@ -1,13 +1,13 @@
 <?php
 
-namespace Nckrtl\DeBanensite;
+namespace NckRtl\DeBanensite;
 
 use Illuminate\Support\Collection;
-use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
-use Nckrtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
-use Nckrtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
-use Nckrtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
-use Nckrtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
+use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {

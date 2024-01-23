@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\Commands;
+namespace NckRtl\DeBanensite\Commands;
 
 use Illuminate\Console\Command;
 

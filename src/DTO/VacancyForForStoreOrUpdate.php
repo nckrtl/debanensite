@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\DTO;
+namespace NckRtl\DeBanensite\DTO;
 
 class VacancyForForStoreOrUpdate
 {
@@ -27,7 +27,7 @@ class VacancyForForStoreOrUpdate
         public ?string $houseNumberSuffix = null,
         public ?string $city = null,
         public ?string $country = null,
-        public ?string $backgroundImage = null,
+        public mixed $backgroundImage = null,
         public ?string $logo = null,
     ) {
     }

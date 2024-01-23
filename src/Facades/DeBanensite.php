@@ -1,16 +1,16 @@
 <?php
 
-namespace Nckrtl\DeBanensite\Facades;
+namespace NckRtl\DeBanensite\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Nckrtl\DeBanensite\DeBanensite
+ * @see \NckRtl\DeBanensite\DeBanensite
  */
 class DeBanensite extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Nckrtl\DeBanensite\DeBanensite::class;
+        return \NckRtl\DeBanensite\DeBanensite::class;
     }
 }

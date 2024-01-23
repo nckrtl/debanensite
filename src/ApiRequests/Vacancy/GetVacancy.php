@@ -1,8 +1,8 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests\Vacancy;
+namespace NckRtl\DeBanensite\ApiRequests\Vacancy;
 
-use Nckrtl\DeBanensite\DTO\Vacancy;
+use NckRtl\DeBanensite\DTO\Vacancy;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

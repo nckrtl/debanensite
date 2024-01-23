@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests;
+namespace NckRtl\DeBanensite\ApiRequests;
 
 use Illuminate\Support\Str;
 use Saloon\Contracts\Body\HasBody;

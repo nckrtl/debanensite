@@ -1,8 +1,8 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests;
+namespace NckRtl\DeBanensite\ApiRequests;
 
-use Nckrtl\DeBanensite\DTO\EducationLevels;
+use NckRtl\DeBanensite\DTO\EducationLevels;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

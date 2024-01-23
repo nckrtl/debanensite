@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\Database\Factories;
+namespace NckRtl\DeBanensite\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

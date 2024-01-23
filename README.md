@@ -52,8 +52,8 @@ php artisan vendor:publish --tag="debanensite-views"
 ## Usage
 
 ```php
-$deBanensite = new Nckrtl\DeBanensite();
-echo $deBanensite->echoPhrase('Hello, Nckrtl!');
+$deBanensite = new NckRtl\DeBanensite();
+echo $deBanensite->echoPhrase('Hello, NckRtl!');
 ```
 
 ## Testing
@@ -76,8 +76,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Nick Retel](https://github.com/nckrtl)
-- [All Contributors](../../contributors)
+-   [Nick Retel](https://github.com/nckrtl)
+-   [All Contributors](../../contributors)
 
 ## License
 

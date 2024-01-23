@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests\CompanyBranch;
+namespace NckRtl\DeBanensite\ApiRequests\CompanyBranch;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

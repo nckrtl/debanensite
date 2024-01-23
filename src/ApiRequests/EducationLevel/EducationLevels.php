@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests\EducationLevel;
+namespace NckRtl\DeBanensite\ApiRequests\EducationLevel;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Nckrtl\DeBanensite;
+namespace NckRtl\DeBanensite;
 
-use Nckrtl\DeBanensite\Commands\DeBanensiteCommand;
+use NckRtl\DeBanensite\Commands\DeBanensiteCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

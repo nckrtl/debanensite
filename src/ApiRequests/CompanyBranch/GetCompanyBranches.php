@@ -1,8 +1,8 @@
 <?php
 
-namespace Nckrtl\DeBanensite\ApiRequests\CompanyBranch;
+namespace NckRtl\DeBanensite\ApiRequests\CompanyBranch;
 
-use Nckrtl\DeBanensite\DTO\CompanyBranches;
+use NckRtl\DeBanensite\DTO\CompanyBranches;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

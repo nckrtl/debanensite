@@ -1,6 +1,6 @@
 <?php
 
-namespace Nckrtl\DeBanensite\DTO;
+namespace NckRtl\DeBanensite\DTO;
 
 use Saloon\Http\Response;
 
