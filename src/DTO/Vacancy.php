@@ -44,7 +44,7 @@ final class Vacancy
     ) {
     }
 
-    public static function fromResponse(Response $response, ?string $dtoType = null): self|VacancyForForStoreOrUpdate
+    public static function fromResponse(Response $response, string $dtoType = null): self|VacancyForForStoreOrUpdate
     {
         $data = $response->json();
 
@@ -113,7 +113,7 @@ final class Vacancy
             salaryMax: $data['salaryMax'],
             publishFrom: $data['publishFrom'],
             fulfilledAt: $data['fulfilledAt'],
-            contactPerson: $data['contactPerson'],
+            contactPerson: $data['contactPerson']['@id'],
             youtubeId: $data['youtubeId'],
             zipcode: $data['address']['zipcode'],
             houseNumber: $data['address']['houseNumber'],
