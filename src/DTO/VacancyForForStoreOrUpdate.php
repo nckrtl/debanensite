@@ -17,7 +17,7 @@ class VacancyForForStoreOrUpdate
         public ?int $maxHours = null,
         public ?string $publishFrom = null,
         public ?string $fulfilledAt = null,
-        public ?string $contactPerson = null,
+        public mixed $contactPerson = null,
         public ?int $salaryMin = null,
         public ?int $salaryMax = null,
         public ?string $youtubeId = null,
