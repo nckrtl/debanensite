@@ -44,7 +44,7 @@ final class Vacancy
     ) {
     }
 
-    public static function fromResponse(Response $response, string $dtoType = null): self|VacancyForForStoreOrUpdate
+    public static function fromResponse(Response $response, ?string $dtoType = null): self|VacancyForForStoreOrUpdate
     {
         $data = $response->json();
 
