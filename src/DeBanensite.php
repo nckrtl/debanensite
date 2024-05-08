@@ -3,13 +3,13 @@
 namespace NckRtl\DeBanensite;
 
 use Illuminate\Support\Collection;
-use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
-use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
-use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
-use NckRtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
-use NckRtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranch;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranches;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\UpdateVacancy;
+use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
@@ -54,7 +54,7 @@ class DeBanensite
         $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
     }
 
-    public function getVacancy(string $vacancyId, string $dtoType = null)
+    public function getVacancy(string $vacancyId, ?string $dtoType = null)
     {
         return $this->connector->send(new GetVacancy($vacancyId, $dtoType))->dto();
     }
