@@ -113,7 +113,7 @@ final class Vacancy
             salaryMax: $data['salaryMax'],
             publishFrom: $data['publishFrom'],
             fulfilledAt: $data['fulfilledAt'] ?? null,
-            contactPerson: is_array($data['contactPerson']) ? $data['contactPerson']['@id'] : $data['contactPerson'],
+            contactPerson: is_array($data['contactPerson']) ? $data['contactPerson']['@id'] : $data['contactPerson'] ?? null,
             youtubeId: $data['youtubeId'],
             zipcode: $data['address']['zipcode'],
             houseNumber: $data['address']['houseNumber'],
