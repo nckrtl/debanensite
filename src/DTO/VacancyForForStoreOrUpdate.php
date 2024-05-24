@@ -28,7 +28,7 @@ class VacancyForForStoreOrUpdate
         public ?string $city = null,
         public ?string $country = null,
         public mixed $backgroundImage = null,
-        public ?string $logo = null,
+        public mixed $logo = null,
     ) {
     }
 }
