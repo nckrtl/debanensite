@@ -116,7 +116,7 @@ final class Vacancy
             contactPerson: is_array($data['contactPerson'] ?? null) ? $data['contactPerson']['@id'] : $data['contactPerson'] ?? null,
             youtubeId: $data['youtubeId'],
             zipcode: $data['address']['zipcode'],
-            houseNumber: $data['address']['houseNumber'],
+            houseNumber: $data['address']['houseNumber'] ?? null,
             houseNumberSuffix: $data['address']['houseNumberSuffix'],
             street: $data['address']['street'],
             city: $data['address']['city'],
