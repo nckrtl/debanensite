@@ -2,9 +2,11 @@
 
 namespace NckRtl\DeBanensite;
 
+use Exception;
 use Illuminate\Support\Collection;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranch;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranches;
+use NckRtl\DeBanensite\ApiRequests\Vacancy\DeleteVacancy;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\StoreVacancy;
@@ -47,16 +49,31 @@ class DeBanensite
 
     public function closeVacancy($vacancyId)
     {
-        $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
+        // $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
 
-        $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
+        // // $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
+        // $vacancy->fulfilledAt = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
+        // // $vacancy->publishTo = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
+        // // $vacancy->online = false;
+        // // $vacancy->published = false;
 
-        $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
+        // $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
+
+        try {
+            DeBanensite::deleteVacancy($vacancyId);
+        } catch (Exception $e) {
+
+        }
     }
 
     public function getVacancy(string $vacancyId, ?string $dtoType = null)
     {
         return $this->connector->send(new GetVacancy($vacancyId, $dtoType))->dto();
+    }
+
+    public function deleteVacancy(string $vacancyId, ?string $dtoType = null)
+    {
+        return $this->connector->send(new DeleteVacancy($vacancyId, $dtoType))->dto();
     }
 
     public function updateVacancy(string $vacancyId, VacancyForForStoreOrUpdate $vacancyDto)

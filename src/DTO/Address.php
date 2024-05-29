@@ -34,16 +34,16 @@ final class Address
 
         return new self(
             $id,
-            $data['zipcode'],
-            $data['houseNumber'],
+            $data['zipcode'] ?? null,
+            $data['houseNumber'] ?? null,
             $data['houseNumberSuffix'],
             $data['latitude'],
             $data['longitude'],
             $data['street'],
-            $data['city'],
-            $data['state'],
-            $data['country'],
-            $data['formattedAddress'],
+            $data['city'] ?? null,
+            $data['state'] ?? null,
+            $data['country'] ?? null,
+            $data['formattedAddress'] ?? null,
         );
     }
 }
