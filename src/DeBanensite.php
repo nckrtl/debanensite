@@ -51,6 +51,8 @@ class DeBanensite
         $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
 
         $vacancy->fulfilledAt = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
+        $vacancy->houseNumber = $vacancy->houseNumber ?? 1;
+        $vacancy->zipcode = $vacancy->zipcode ?? '1234 AB';
 
         $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
     }
