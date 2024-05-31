@@ -2,7 +2,6 @@
 
 namespace NckRtl\DeBanensite;
 
-use Exception;
 use Illuminate\Support\Collection;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranch;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranches;
@@ -49,21 +48,11 @@ class DeBanensite
 
     public function closeVacancy($vacancyId)
     {
-        // $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
+        $vacancy = $this->connector->send(new GetVacancy($vacancyId, 'updateOrCreate'))->dto();
 
-        // // $vacancy->fulfilledAt = now()->format('Y-m-d\TH:i:s.v\Z');
-        // $vacancy->fulfilledAt = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
-        // // $vacancy->publishTo = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
-        // // $vacancy->online = false;
-        // // $vacancy->published = false;
+        $vacancy->fulfilledAt = now()->setTimezone('UTC')->format('Y-m-d\TH:i:sP');
 
-        // $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
-
-        try {
-            DeBanensite::deleteVacancy($vacancyId);
-        } catch (Exception $e) {
-
-        }
+        $this->connector->send(new UpdateVacancy($vacancyId, $vacancy));
     }
 
     public function getVacancy(string $vacancyId, ?string $dtoType = null)

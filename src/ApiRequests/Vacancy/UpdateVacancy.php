@@ -34,6 +34,11 @@ class UpdateVacancy extends Request implements HasBody
 
     protected function defaultBody(): array
     {
-        return array_filter((array) $this->vacancy);
+        $body = array_filter((array) $this->vacancy);
+        $body['variables'] = [
+            'id' => '/vacancies/'.$this->id,
+        ];
+
+        return $body;
     }
 }
