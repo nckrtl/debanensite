@@ -29,7 +29,7 @@ final class Vacancy
         public ?array $companyBranch,
         public ?array $requiredFieldsForApplication,
         public mixed $backgroundImage,
-        public ?string $logo,
+        public mixed $logo,
         public ?array $usps,
         public ?array $screeningQuestions,
         public mixed $uwvJob,
