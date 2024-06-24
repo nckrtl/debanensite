@@ -115,10 +115,10 @@ final class Vacancy
             youtubeId: $data['youtubeId'] ?? null,
             zipcode: $data['address']['zipcode'] ?? null,
             houseNumber: $data['address']['houseNumber'] ?? null,
-            houseNumberSuffix: $data['address']['houseNumberSuffix'],
-            street: $data['address']['street'],
+            houseNumberSuffix: $data['address']['houseNumberSuffix'] ?? null,
+            street: $data['address']['street'] ?? null,
             city: $data['address']['city'] ?? null,
-            country: $data['address']['country'],
+            country: $data['address']['country'] ?? null,
             backgroundImage: $data['backgroundImage'] ?? null,
             logo: $data['logo'] ?? null,
         );
