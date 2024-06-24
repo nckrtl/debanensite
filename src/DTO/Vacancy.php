@@ -40,8 +40,7 @@ final class Vacancy
         public ?int $publishedAtRefreshCount,
         public ?string $youtubeId,
         public bool $published,
-    ) {
-    }
+    ) {}
 
     public static function fromResponse(Response $response, ?string $dtoType = null): self|VacancyForForStoreOrUpdate
     {

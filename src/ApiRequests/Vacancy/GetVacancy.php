@@ -14,8 +14,7 @@ class GetVacancy extends Request
     public function __construct(
         protected string $id,
         protected ?string $dtoType = null,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

@@ -18,8 +18,7 @@ final class Address
         public ?string $state,
         public ?string $country,
         public ?string $formattedAddress,
-    ) {
-    }
+    ) {}
 
     public static function fromResponse(Response $response): self
     {
