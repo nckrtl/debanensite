@@ -14,10 +14,7 @@ use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
-    public function __construct(protected DeBanensiteConnector $connector)
-    {
-
-    }
+    public function __construct(protected DeBanensiteConnector $connector) {}
 
     public function allPublishedVacancyIds(): Collection
     {

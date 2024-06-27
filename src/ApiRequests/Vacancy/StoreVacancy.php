@@ -30,8 +30,7 @@ class StoreVacancy extends Request implements HasBody
 
     public function __construct(
         readonly protected VacancyForForStoreOrUpdate $vacancy
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {

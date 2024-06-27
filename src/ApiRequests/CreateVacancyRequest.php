@@ -38,8 +38,7 @@ class CreateVacancyRequest extends Request implements HasBody
         // protected string $city,
         // protected string $state,
         // protected string $country = 'Nederland',
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {
