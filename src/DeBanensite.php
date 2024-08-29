@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranch;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranches;
 use NckRtl\DeBanensite\ApiRequests\GetAddress;
+use NckRtl\DeBanensite\ApiRequests\GetCompanyBranchAddress;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\DeleteVacancy;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
@@ -15,15 +16,13 @@ use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
-    public function __construct(protected DeBanensiteConnector $connector)
-    {
-    }
+    public function __construct(protected DeBanensiteConnector $connector) {}
 
     public function allPublishedVacancyIds(): Collection
     {
         $currentPage = 1;
 
-        $vacancies = $this->connector->send(new GetVacancies())->dto();
+        $vacancies = $this->connector->send(new GetVacancies)->dto();
 
         $allOnlineVacancies = $vacancies['items']->map(function ($vacancy) {
             return $vacancy->id;
@@ -84,7 +83,7 @@ class DeBanensite
 
     public function getLocations()
     {
-        return $this->connector->send(new GetCompanyBranches())->dto();
+        return $this->connector->send(new GetCompanyBranches)->dto();
     }
 
     public function getCompanyBranch(string $branchId, ?string $dtoType = null)
@@ -92,9 +91,14 @@ class DeBanensite
         return $this->connector->send(new GetCompanyBranch($branchId))->json();
     }
 
+    public function getCompanyBranchAddress(string $branchId, ?string $dtoType = null)
+    {
+        return $this->connector->send(new GetCompanyBranchAddress($branchId))->dto();
+    }
+
     public function getCompanyBranches()
     {
-        return $this->connector->send(new GetCompanyBranches())->json();
+        return $this->connector->send(new GetCompanyBranches)->json();
     }
 
     public function getAddress(string $addressId, ?string $dtoType = null)
