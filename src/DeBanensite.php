@@ -15,15 +15,13 @@ use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
-    public function __construct(protected DeBanensiteConnector $connector)
-    {
-    }
+    public function __construct(protected DeBanensiteConnector $connector) {}
 
     public function allPublishedVacancyIds(): Collection
     {
         $currentPage = 1;
 
-        $vacancies = $this->connector->send(new GetVacancies())->dto();
+        $vacancies = $this->connector->send(new GetVacancies)->dto();
 
         $allOnlineVacancies = $vacancies['items']->map(function ($vacancy) {
             return $vacancy->id;
@@ -84,7 +82,7 @@ class DeBanensite
 
     public function getLocations()
     {
-        return $this->connector->send(new GetCompanyBranches())->dto();
+        return $this->connector->send(new GetCompanyBranches)->dto();
     }
 
     public function getCompanyBranch(string $branchId, ?string $dtoType = null)
@@ -94,7 +92,7 @@ class DeBanensite
 
     public function getCompanyBranches()
     {
-        return $this->connector->send(new GetCompanyBranches())->json();
+        return $this->connector->send(new GetCompanyBranches)->json();
     }
 
     public function getAddress(string $addressId, ?string $dtoType = null)
