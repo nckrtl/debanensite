@@ -5,6 +5,7 @@ namespace NckRtl\DeBanensite;
 use Illuminate\Support\Collection;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranch;
 use NckRtl\DeBanensite\ApiRequests\CompanyBranch\GetCompanyBranches;
+use NckRtl\DeBanensite\ApiRequests\GetAddress;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\DeleteVacancy;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancies;
 use NckRtl\DeBanensite\ApiRequests\Vacancy\GetVacancy;
@@ -14,7 +15,9 @@ use NckRtl\DeBanensite\DTO\VacancyForForStoreOrUpdate;
 
 class DeBanensite
 {
-    public function __construct(protected DeBanensiteConnector $connector) {}
+    public function __construct(protected DeBanensiteConnector $connector)
+    {
+    }
 
     public function allPublishedVacancyIds(): Collection
     {
@@ -82,5 +85,20 @@ class DeBanensite
     public function getLocations()
     {
         return $this->connector->send(new GetCompanyBranches())->dto();
+    }
+
+    public function getCompanyBranch(string $branchId, ?string $dtoType = null)
+    {
+        return $this->connector->send(new GetCompanyBranch($branchId))->json();
+    }
+
+    public function getCompanyBranches()
+    {
+        return $this->connector->send(new GetCompanyBranches())->json();
+    }
+
+    public function getAddress(string $addressId, ?string $dtoType = null)
+    {
+        return $this->connector->send(new GetAddress($addressId))->json();
     }
 }

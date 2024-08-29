@@ -17,7 +17,7 @@ final class Vacancy
         public ?array $educationLevel,
         public ?array $contractDuration,
         public ?array $compensationType,
-        public ?string $contactPerson,
+        public string|array|null $contactPerson,
         public ?float $salaryMin,
         public ?float $salaryMax,
         public ?int $minHours,
@@ -40,7 +40,8 @@ final class Vacancy
         public ?int $publishedAtRefreshCount,
         public ?string $youtubeId,
         public bool $published,
-    ) {}
+    ) {
+    }
 
     public static function fromResponse(Response $response, ?string $dtoType = null): self|VacancyForForStoreOrUpdate
     {
